@@ -1,0 +1,1 @@
+Organiza módulos específicos de caraterísticas, agrupando componentes, estilos e lógica relacionados.

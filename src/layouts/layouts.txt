@@ -1,0 +1,1 @@
+Contém componentes da estrutura do aplicativo, como cabeçalhos, rodapés e wrappers de layout.
