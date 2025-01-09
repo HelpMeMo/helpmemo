@@ -1,22 +1,24 @@
 import { useState } from "react";
 import questio_mark_sociologia from "../assets/questio_mark_sociologia.png";
+import "../styles/Card.css";
 
 
-function Card(){
-    const [content, setContent] = useState("NR 17");
+function Card({content}){
+    const [showContent, setContent] = useState(false);
     return(
-        <div>
-            <h1 className="text-3xl">{content}</h1>
-            <button 
-                onClick = {() => {
-                    setContent(<img className="questio_mark_sociologia" src={questio_mark_sociologia} alt="question mark sociologia" />);
-                }}
-            > 
-                Virar Card
-            </button>
-        </div>
-        
+        <button className="Card" onClick = {() => {
+            setContent({content});
+            
+        }}>
+             {showContent && {content}}
+            <img className="Questio_mark_sociologia" src={questio_mark_sociologia} alt="question mark sociologia" /> 
+        </button>
+       
     )
 }
 
+
+
 export default Card
+
+{/* <img className="Questio_mark_sociologia" src={questio_mark_sociologia} alt="question mark sociologia" /> */}
