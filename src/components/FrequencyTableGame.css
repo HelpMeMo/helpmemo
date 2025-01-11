@@ -1,0 +1,123 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+  }
+  
+  .game-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .sequencia {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .tabela-frequencia {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .tabela-frequencia th, .tabela-frequencia td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .tabela-frequencia th {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  input[type="number"] {
+    width: 100px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    margin: 5px 0;
+  }
+  
+  .input-container {
+    margin-top: 20px;
+  }
+  
+  .input-container input {
+    width: 100px;
+  }
+  
+  .buttons-container {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .verify-btn {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .verify-btn:hover {
+    background-color: #27ae60;
+  }
+  
+  .next-phase-btn {
+    background-color: #f39c12;
+    color: white;
+  }
+  
+  .next-phase-btn:hover {
+    background-color: #e67e22;
+  }
+  
+  .show-solution-btn {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .show-solution-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  .resolucao {
+    margin-top: 20px;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  .resultado {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
