@@ -4,7 +4,6 @@
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  padding: 10%;
 }
 
 .App-logo {
@@ -37,6 +36,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
