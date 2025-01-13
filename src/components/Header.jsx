@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../assets/logo.png';
 import '../styles/Header.css';
+import { Link } from "react-router-dom";
 
 
 function Navbar() {
@@ -14,9 +15,9 @@ function Navbar() {
                         <div className="dropdown">
                                 <button className="dropbtn">Disciplinas</button>
                                 <div className="dropdown-content">
-                                        <a href="#">Matemática</a>
-                                        <a href="#">Sociologia</a>
-                                        <a href="#">HST</a>
+                                        <Link to="/math">Matemática</Link>
+                                        <Link to="/sociology">Sociologia</Link>
+                                        <Link to="/hst">HST</Link>
                                 </div>
                         </div>
                 </nav>
