@@ -26,7 +26,7 @@ const Sociology = () => {
                         <Card content={capitalFinanceiro} />
                         <Card content={capitalFinanceiro} />
                 </div>
-                .
+                
                 </>
         );
 };
