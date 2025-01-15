@@ -3,9 +3,12 @@
     border-width: 2px;
     border-color: #D6B081;
     border-radius: 8px;
+    
 }
 
-.Questio_mark_sociologia {
+.asset {
     pointer-events: none;
+    width: auto;
+    height: 220px;
   }
   
