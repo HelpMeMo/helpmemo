@@ -1,0 +1,27 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import "../styles/Footer.css";
+import linkedinIcon from "../assets/icon1.png";
+import githubIcon from "../assets/icon2.png";
+import instaIcon from "../assets/icon3.png";
+
+const Footer = () => {
+        return (
+                <footer className="footer">
+                        <p className="footer-text">Copyright © 2024/HelpMeMo</p>
+                        <div className="footer-icons">
+                                <Link to="https://www.instagram.com/isabelly.bc/" className="footer-icon" title="Facebook">
+                                        <img src={linkedinIcon} alt="Facebook" />
+                                </Link>
+                                <Link to="https://www.instagram.com/isabelly.bc/" className="footer-icon" title="Instagram">
+                                        <img src={githubIcon} alt="Instagram" />
+                                </Link>
+                                <Link to="https://www.instagram.com/isabelly.bc/" className="footer-icon" title="Twitter">
+                                        <img src={instaIcon} alt="Twitter" />
+                                </Link>
+                        </div>
+                </footer>
+        );
+};
+
+export default Footer;

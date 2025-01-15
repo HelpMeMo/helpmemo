@@ -5,7 +5,8 @@
         padding: 10px;
         background-color: white;
         border-bottom: 1px solid #ccc;
-        width: 100vw;
+        width: 100%;
+        font-family: 'Open Sans', sans-serif;
 }
 
 .logo .logo-img {
@@ -21,17 +22,14 @@
 
 .dropbtn {
         background-color: transparent;
-        border: none;
+        border: 1px solid #5132a5;
         color: black;
         font-size: 16px;
         cursor: pointer;
         border-radius: 5px;
         transition: background-color 0.3s ease;
-        padding: 10px 20px;
-
-        height: 50px;
-
-        width: 160px;
+        padding: 7px 20px;
+        width: 130px;
 
         display: flex;
         align-items: center;
@@ -44,7 +42,7 @@
         display: none;
         position: absolute;
         background-color: white;
-        width: 160px;
+        width: 130px;
         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         z-index: 1;
         right: 0;
@@ -62,6 +60,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
 
 }
 
@@ -82,19 +81,24 @@
         gap: 1rem;
         align-items: center;
         margin-right: 12px;
+
+
 }
 
 .nav-links a {
         color: black;
         text-decoration: none;
-        padding: 10px 20px;
+        padding: 7px 20px;
         border-radius: 5px;
         transition: background-color 0.3s ease;
         display: flex;
         align-items: center;
         justify-content: center;
+
 }
 
 .nav-links a:hover {
         background-color: #f1f1f1;
+        border: 1px solid #5132a5;
+
 }

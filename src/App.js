@@ -8,6 +8,7 @@ import Hst from "./pages/Hst";
 import Initial from "./pages/Initial";
 import Math from "./pages/Math";
 import Sociology from "./pages/Sociology";
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route path="/sociology" element={<Sociology />} />
         </Routes>
 
-
+        <Footer />
       </div>
     </Router>
 
