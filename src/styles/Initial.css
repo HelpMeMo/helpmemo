@@ -1,0 +1,42 @@
+.initial-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: #b8c6e6;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+}
+
+.initial-header {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #86A3EA;
+        text-shadow:
+                -1px -1px 0 #252F47,
+                1px -1px 0 #252F47,
+                -1px 1px 0 #252F47,
+                1px 1px 0 #252F47;
+}
+
+h2 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 30px;
+        margin-bottom: 30px;
+        color: #2c3e50;
+}
+
+.cards-container {
+        display: flex;
+        gap: 90px;
+}
+
+body {
+        background-color: #b8c6e6;
+}
