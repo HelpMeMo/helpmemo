@@ -1,4 +1,3 @@
-// Initial.jsx
 import React from "react";
 import "../styles/Initial.css";
 import CardInitial from "../components/CardInitial";
