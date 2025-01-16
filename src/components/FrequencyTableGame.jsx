@@ -2,27 +2,23 @@ import React, { useState } from 'react';
 import '../styles/FrequencyTableGame.css';
 
 const TabelaFrequencia = () => {
-  // Estado inicial com respostas corretas
   const [respostas, setRespostas] = useState({
-    frequenciaAbsoluta1: '2',
-    frequenciaAbsoluta2: '3',
+    frequenciaAbsoluta1: '',
+    frequenciaAbsoluta2: '',
     frequenciaAbsoluta3: '3',
     frequenciaAbsoluta4: '4',
     frequenciaRelativa1: '0.17',
     frequenciaRelativa2: '0.25',
-    frequenciaRelativa3: '0.25',
+    frequenciaRelativa3: '',
     frequenciaRelativa4: '0.33',
-    total: '12',
+    total: '',
   });
 
   const [fase, setFase] = useState(1);
   const [showResolucao, setShowResolucao] = useState(false);
   const [resultado, setResultado] = useState(null);
-
-  // Campos que ficarão em branco
   const [camposEmBranco, setCamposEmBranco] = useState([]);
 
-  // Tabelas de dados para cada fase
   const tabelas = [
     {
       dados: [7, 5, 3, 7, 8, 8, 5, 8, 3, 8, 5, 7],
@@ -44,7 +40,6 @@ const TabelaFrequencia = () => {
 
   const tabelaAtual = tabelas[fase - 1];
 
-  // Selecionar campos para deixar em branco
   React.useEffect(() => {
     const campos = [
       'frequenciaAbsoluta1',
@@ -82,7 +77,25 @@ const TabelaFrequencia = () => {
   };
 
   const proximaFase = () => {
-    setFase(fase + 1);
+    if (resultado === 'Correto!') {
+      setFase(fase + 1);
+      setRespostas({
+        frequenciaAbsoluta1: '',
+        frequenciaAbsoluta2: '',
+        frequenciaAbsoluta3: '',
+        frequenciaAbsoluta4: '',
+        frequenciaRelativa1: '',
+        frequenciaRelativa2: '',
+        frequenciaRelativa3: '',
+        frequenciaRelativa4: '',
+        total: '',
+      });
+      setResultado(null);
+      setShowResolucao(false); // Resetar a resolução para a próxima fase
+    }
+  };
+
+  const reiniciarFase = () => {
     setRespostas({
       frequenciaAbsoluta1: '',
       frequenciaAbsoluta2: '',
@@ -95,14 +108,41 @@ const TabelaFrequencia = () => {
       total: '',
     });
     setResultado(null);
+    setShowResolucao(false); // Resetar a resolução ao reiniciar a fase
+  };
+
+  // Função para voltar à primeira fase
+  const voltarParaPrimeiraFase = () => {
+    setFase(1);
+    setRespostas({
+      frequenciaAbsoluta1: '',
+      frequenciaAbsoluta2: '',
+      frequenciaAbsoluta3: '',
+      frequenciaAbsoluta4: '',
+      frequenciaRelativa1: '',
+      frequenciaRelativa2: '',
+      frequenciaRelativa3: '',
+      frequenciaRelativa4: '',
+      total: '',
+    });
+    setResultado(null);
+    setShowResolucao(false); // Resetar a resolução ao voltar para a fase 1
+  };
+
+  const exibirResolucao = () => {
+    setShowResolucao(true);
+  };
+
+  const fecharNotificacao = () => {
+    setShowResolucao(false);
   };
 
   return (
     <div className="game-container">
-      <h1>Complete os Campos em Branco</h1>
+      <h1>Complete os campos em branco</h1>
 
       <div className="sequencia">
-        <h2>Sequência de Números: {tabelaAtual.dados.join(', ')}</h2>
+        <h2>Sequência de números: {tabelaAtual.dados.join(', ')}</h2>
       </div>
 
       <table className="tabela-frequencia">
@@ -134,43 +174,92 @@ const TabelaFrequencia = () => {
                 )}
               </td>
               <td>
-                {camposEmBranco.includes(`frequenciaRelativa${index + 1}`) ? (
-                  <input
-                    type="number"
-                    value={respostas[`frequenciaRelativa${index + 1}`]}
-                    onChange={(e) =>
-                      setRespostas({
-                        ...respostas,
-                        [`frequenciaRelativa${index + 1}`]: e.target.value,
-                      })
-                    }
-                  />
-                ) : (
-                  tabelaAtual.respostaCorreta.frequenciaRelativa[index]
-                )}
-              </td>
+  {index === 2 && camposEmBranco.includes(`frequenciaRelativa3`) ? (
+    <input
+      type="number"
+      value={respostas.frequenciaRelativa3}
+      onChange={(e) =>
+        setRespostas({
+          ...respostas,
+          frequenciaRelativa3: e.target.value,
+        })
+      }
+    />
+  ) : (
+    tabelaAtual.respostaCorreta.frequenciaRelativa[index]
+  )}
+</td>
+
             </tr>
           ))}
+          {/* Linha para Totais */}
+          <tr>
+            <td>Total</td>
+            <td>
+              <input
+                type="number"
+                value={respostas.total}
+                onChange={(e) =>
+                  setRespostas({
+                    ...respostas,
+                    total: e.target.value,
+                  })
+                }
+              />
+            </td>
+            <td>
+              ≈ 1
+            </td>
+          </tr>
         </tbody>
       </table>
 
-      <div className="input-container">
-        <input
-          type="number"
-          value={respostas.total}
-          onChange={(e) => setRespostas({ ...respostas, total: e.target.value })}
-          placeholder="Total"
-        />
-      </div>
-
+      <br />
       <button className="btn verify-btn" onClick={verificarRespostas}>
-        Enviar Respostas
+        Enviar respostas
       </button>
       {resultado && <div className="resultado">{resultado}</div>}
-      {fase < tabelas.length && (
+      <br />
+      <br />
+
+      <button className="btn restart-btn" onClick={reiniciarFase}>
+        Reiniciar
+      </button>
+      {fase < tabelas.length && resultado === 'Correto!' && (
         <button className="btn next-phase-btn" onClick={proximaFase}>
-          Próxima Fase
+          Próxima fase
         </button>
+      )}
+
+
+      {fase > 1 && (
+        <button className="btn back-to-first-phase-btn" onClick={voltarParaPrimeiraFase}>
+          Fase anterior
+        </button>
+      )}
+
+      {resultado === 'Correto!' && (
+        <button className="btn show-solucao-btn" onClick={exibirResolucao}>
+          Mostrar solução
+        </button>
+      )}
+
+      {showResolucao && (
+        <div className="notification">
+          <p><strong>Resolução Simples:</strong></p>
+          <p>
+            Para calcular a <strong>frequência absoluta</strong>, você deve contar quantas vezes cada número aparece na sequência. Por exemplo, o número 7 aparece 3 vezes, logo sua frequência absoluta é 3.
+          </p>
+          <p>
+            Para calcular a <strong>frequência relativa</strong>, você divide a frequência absoluta de cada número pelo total de elementos da sequência. Por exemplo, se o número 7 aparece 3 vezes em um total de 12, a frequência relativa do 7 será 3 ÷ 12 = 0.25.
+          </p>
+          <p>
+            O <strong>total</strong> é simplesmente a soma de todas as frequências absolutas, que deve ser igual ao número total de elementos da sequência.
+          </p>
+          <button className="btn close-notification-btn" onClick={fecharNotificacao}>
+            Fechar
+          </button>
+        </div>
       )}
     </div>
   );
