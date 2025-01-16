@@ -1,55 +1,55 @@
-.hst-container {
+.soc-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     height: 100%;
     width: 100%;
-    background-color: #D9FFD6;
+    background-color: #F1E3D2;
     margin: 0;
     padding: 30px 0; 
     box-sizing: border-box;
 }
 
-.hst-header {
+.soc-header {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #90D999;
+    color: #D6B081;
     text-shadow:
-        -1px -1px 0 #364732,
-        1px -1px 0 #364732,
-        -1px 1px 0 #364732,
-        1px 1px 0 #364732;
+        -1px -1px 0 #864B19,
+        1px -1px 0 #864B19,
+        -1px 1px 0 #864B19,
+        1px 1px 0 #864B19;
     text-align: center;
-    letter-spacing: 2px; 
+    letter-spacing: 2px;
 }
 
-.hst-firstTitle {
+.soc-firstTitle {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.6rem;
-    color: #364732;
+    color: #864B19;
     text-shadow:
-        -1px -1px 0 #4D9C57,
-        1px -1px 0 #4D9C57,
-        -1px 1px 0 #4D9C57,
-        1px 1px 0 #4D9C57;
-    margin-bottom: 10px; 
+        -1px -1px 0 #D6B081,
+        1px -1px 0 #D6B081,
+        -1px 1px 0 #D6B081,
+        1px 1px 0 #D6B081;
+    margin-bottom: 10px;
     text-align: center;
 }
 
-/* Botão hst-buttonNext*/
+/* Botão soc-buttonNext*/
 .buttonNext {
     display: flex;
     justify-content: center;
     margin: 20px 0;
 }
 
-.hst-buttonNext {
+.soc-buttonNext{
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #092902;
+    background-color: #864B19;
     border: none;
     border-radius: 5px;
     color: #ffffff;
@@ -57,10 +57,11 @@
     transition: background-color 0.3s;
 }
 
-.hst-buttonNext:hover {
-    background-color: #ffffff;
-    color: #092902;
+.soc-buttonNext:hover {
+    background-color: #ffff;
+    color: #864B19;
 }
+
 
 /*Vaquinhas*/
 
