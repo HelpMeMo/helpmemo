@@ -1,6 +1,7 @@
 import { useState } from "react";
-import qmark from "../assets/sociology/qmark.png";
 import "../styles/Card.css";
+
+import qmark from "../assets/sociology/qmark.png";
 
 
 function Card({content}){
@@ -19,8 +20,6 @@ function Card({content}){
        
     )
 }
-
-
 
 export default Card
 

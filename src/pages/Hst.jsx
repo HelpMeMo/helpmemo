@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import '../styles/Hst.css';
 
 import Card from '../components/Card';
-import capitalFinanceiro from "../assets/sociology/capitalFincanceiro.png";
-import capitalFinanceiro2 from "../assets/sociology/capitalFinanceiro2.png";
-import capitalCultural from "../assets/sociology/capitalCultural.png";
-import capitalSimbolico from "../assets/sociology/capitalSimbolico.png";
-import karl from "../assets/sociology/karl.png";
+import nr5 from "../assets/hst/nr5.png";
+import nr5s2 from "../assets/hst/nr5s2.png";
+import nr6 from "../assets/hst/nr6.png";
+import nr6s2 from "../assets/hst/nr6s2.png";
+import nr7 from "../assets/hst/nr7.png";
+import nr7s2 from "../assets/hst/nr7s2.png";
+import nr16 from "../assets/hst/nr16.png";
+import nr16s2 from "../assets/hst/nr16s2.png";
+import nr17 from "../assets/hst/nr17.png";
+import nr17s2 from "../assets/hst/nr17s2.png";
+import nr23 from "../assets/hst/nr23.png";
+import nr23s2 from "../assets/hst/nr23s2.png";
 
 import vaca from '../assets/vaca.png'
 import vacaLeite from '../assets/vacaLeite.png'
@@ -14,14 +21,18 @@ import vacaLeite from '../assets/vacaLeite.png'
 const Hst = () => {
   // Definindo os cards no estado
   const [cards, setCards] = useState([
-    { id: 1, content: capitalFinanceiro },
-    { id: 2, content: capitalFinanceiro2 },
-    { id: 3, content: capitalCultural },
-    { id: 4, content: capitalSimbolico },
-    { id: 5, content: karl },
-    { id: 6, content: capitalFinanceiro },
-    { id: 7, content: capitalFinanceiro2 },
-    { id: 8, content: capitalCultural },
+    { id: 1, content: nr5 },
+    { id: 2, content: nr5s2 },
+    { id: 3, content: nr6 },
+    { id: 4, content: nr6s2 },
+    { id: 5, content: nr7 },
+    { id: 6, content: nr7s2 },
+    { id: 7, content: nr16 },
+    { id: 8, content: nr16s2 },
+    { id: 9, content: nr17 },
+    { id: 10, content: nr17s2 },
+    { id: 11, content: nr23 },
+    { id: 12, content: nr23s2 },
   ]);
 
   // Função de embaralhamento (Algoritmo de Fisher-Yates)
@@ -41,7 +52,7 @@ const Hst = () => {
       <header className="hst-header"> Higiene e Segurança do Trabalho (HST)</header>
       
       {/* Exibindo os cards embaralhados */}
-      <div className="grid grid-cols-4 gap-4 p-4">
+      <div className="grid grid-cols-4 gap-4 p-4" >
         {cards.map((card) => (
           <Card key={card.id} content={card.content} />
         ))}
