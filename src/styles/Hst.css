@@ -62,6 +62,24 @@
     color: #092902;
 }
 
+/*Botão hst-buttonClose*/
+
+.hst-buttonClose{
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #092902;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+
+.hst-buttonClose:hover{
+    background-color: #ffffff;
+    color: #092902;
+}
+
 /*Vaquinhas*/
 
 .vaca {

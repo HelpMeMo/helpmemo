@@ -24,4 +24,3 @@ function Card({content}){
 
 export default Card
 
-{/* <img className="Questio_mark_sociologia" src={questio_mark_sociologia} alt="question mark sociologia" /> */}
