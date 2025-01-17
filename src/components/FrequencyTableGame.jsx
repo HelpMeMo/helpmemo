@@ -139,7 +139,6 @@ const TabelaFrequencia = () => {
 
   return (
     <div className="game-container">
-      <h1>Complete os campos em branco</h1>
 
       <div className="sequencia">
         <h2>Sequência de números: {tabelaAtual.dados.join(', ')}</h2>

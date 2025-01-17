@@ -1,11 +1,12 @@
 import React from "react";
 import FrequencyTableGame from '../components/FrequencyTableGame';
+import '../styles/Math.css';
 
 const Math = () => {
         return (
-                <div>
-                        <h1>Página math</h1>
-                        <p>Bem-vindo à página math!</p>
+                <div className="page-math">
+                        <h1 id="titulo-math">Duvido você acertar os valores que faltam na tabela: </h1>
+                        
                         <FrequencyTableGame />
                 </div>
         );
