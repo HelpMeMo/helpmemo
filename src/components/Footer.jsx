@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Footer.css";
-import linkedinIcon from "../assets/icon1.png";
-import githubIcon from "../assets/icon2.png";
-import instaIcon from "../assets/icon3.png";
+import linkedinIcon from "../assets/footer/icon1.png";
+import githubIcon from "../assets/footer/icon2.png";
+import instaIcon from "../assets/footer/icon3.png";
 
 const Footer = () => {
         return (

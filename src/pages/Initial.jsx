@@ -1,9 +1,9 @@
 import React from "react";
 import "../styles/Initial.css";
 import CardInitial from "../components/CardInitial";
-import mathIcon from "../assets/math.png";
-import hstIcon from "../assets/hst.png";
-import sociologyIcon from "../assets/socio.png";
+import mathIcon from "../assets/initial/math.png";
+import hstIcon from "../assets/initial/hst.png";
+import sociologyIcon from "../assets/initial/socio.png";
 
 const Initial = () => {
         return (

@@ -3,11 +3,11 @@ import "../styles/About.css";
 import logo from '../assets/logo.png';
 import vaca from '../assets/vaca.png';
 import vacaLeite from '../assets/vacaLeite.png';
-import integrante1 from '../assets/integrante1.jpeg';
-import integrante2 from '../assets/integrante2.jpeg';
-import integrante3 from '../assets/integrante1.jpeg';
-import integrante4 from '../assets/integrante1.jpeg';
-import integrante5 from '../assets/integrante5.jpeg';
+import integrante1 from '../assets/about/integrante1.jpeg';
+import integrante2 from '../assets/about/integrante2.jpeg';
+import integrante3 from '../assets/about/integrante1.jpeg';
+import integrante4 from '../assets/about/integrante1.jpeg';
+import integrante5 from '../assets/about/integrante5.jpeg';
 
 const teamMembers = [
         { name: "Isabelly B.", role: "Desenvolvedora FullStack", image: integrante1 },
