@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from '../components/Card';
 import '../styles/Sociology.css';
-
 
 import capitalFinanceiro from "../assets/sociology/capitalFinanceiro.png";
 import capitalFinanceiro2 from "../assets/sociology/capitalFinanceiro2.png";
@@ -43,23 +43,36 @@ const Sociology = () => {
     { id: 16, content: estado2 },
   ]);
 
-  // Função de embaralhamento (Algoritmo de Fisher-Yates)
+  const [showNotification, setShowNotification] = useState(false);
+  const navigate = useNavigate();
+
   const shuffleCards = () => {
     const shuffled = [...cards];
     for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1)); // Gera um índice aleatório
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Troca os elementos
+      const j = Math.floor(Math.random() * (i + 1)); 
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; 
     }
-    setCards(shuffled); // Atualiza o estado com o novo array embaralhado
+    setCards(shuffled);
+  };
+
+  const handleExitClick = () => {
+    setShowNotification(true);
+  };
+
+  const handleCloseNotification = () => {
+    setShowNotification(false);
+  };
+
+  const handleConfirmExit = () => {
+    navigate("/"); // Redireciona para a tela inicial
   };
 
   return (
-    <div className="soc-container"> 
+    <div className="soc-container">
       <h1 className="soc-firstTitle">JOGO DA MEMÓRIA</h1>
 
-      <header className="soc-header"> Sociologia </header>
+      <header className="soc-header">Sociologia</header>
 
-      {/* Exibindo os cards embaralhados */}
       <div className="grid grid-cols-4 gap-4 p-4">
         {cards.map((card) => (
           <Card key={card.id} content={card.content} />
@@ -67,30 +80,75 @@ const Sociology = () => {
       </div>
 
       <div style={{ display: "flex", gap: "10px" }}>
-
         <div className="soc-buttonNext">
-
           <button id="shuffle-button" onClick={shuffleCards}>
             Embaralhe para um novo jogo!
           </button>
-
         </div>
 
         <div className="soc-buttonClose">
-
-          <button id="shuffle-button">
+          <button id="exit-button" onClick={handleExitClick}>
             Sair do jogo!
           </button>
-
         </div>
-
       </div>
 
-      <div>
+      {showNotification && (
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "white",
+            padding: "20px",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            borderRadius: "10px",
+            textAlign: "center",
+            zIndex: 1000,
+          }}
+        >
+          <h2>Vai desistir?</h2>
+          <img
+            src={vaca}
+            alt="imagem de aviso"
+            style={{ width: "100px", marginBottom: "10px" }}
+          />
+          <div>
+            <button
+              onClick={handleCloseNotification}
+              style={{
+                backgroundColor: "#f44336",
+                color: "white",
+                border: "none",
+                padding: "10px 20px",
+                borderRadius: "5px",
+                cursor: "pointer",
+                marginRight: "10px",
+              }}
+            >
+              Não
+            </button>
+            <button
+              onClick={handleConfirmExit}
+              style={{
+                backgroundColor: "#4caf50",
+                color: "white",
+                border: "none",
+                padding: "10px 20px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Sim
+            </button>
+          </div>
+        </div>
+      )}
 
+      <div>
         <img src={vaca} alt="vaquinha" className="vaca" />
         <img src={vacaLeite} alt="vaquinha com leite" className="vaca" />
-
       </div>
     </div>
   );
