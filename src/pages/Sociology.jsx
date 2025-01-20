@@ -125,11 +125,11 @@ const Sociology = () => {
           </button>
         </div>
 
-        {/* <div className="soc-buttonClose">
+        <div className="soc-buttonClose">
           <button id="exit-button" onClick={handleExitClick}>
             Sair do jogo!
           </button>
-        </div> */}
+        </div>
 
         {showPopup && (
                 <div className="popup">
@@ -140,6 +140,7 @@ const Sociology = () => {
         )}
 
       </div>
+
 
       {showNotification && (
         <div
