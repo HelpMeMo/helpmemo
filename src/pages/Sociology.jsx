@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Card from '../components/Card';
 import '../styles/Sociology.css';
@@ -14,7 +14,7 @@ import capitalSocial2 from "../assets/sociology/capitalSocial2.png";
 import karlMarx from "../assets/sociology/karlMarx.png";
 import karlMarx2 from "../assets/sociology/karlMarx2.png";
 import emileDurkhein from "../assets/sociology/emileDurkhein.png";
-import emileDurkhein2 from "../assets/sociology/emileDurkhein.png";
+import emileDurkhein2 from "../assets/sociology/emileDurkhein2.png";
 import maxWeber from "../assets/sociology/maxWeber.png";
 import maxWeber2 from "../assets/sociology/maxWeber2.png";
 import estado from "../assets/sociology/estado.png";
@@ -25,35 +25,69 @@ import vacaLeite from '../assets/vacaLeite.png';
 
 const Sociology = () => {
   const [cards, setCards] = useState([
-    { id: 1, content: capitalFinanceiro },
-    { id: 2, content: capitalFinanceiro2 },
-    { id: 3, content: capitalCultural },
-    { id: 4, content: capitalCultural2 },
-    { id: 5, content: capitalSimbolico },
-    { id: 6, content: capitalSimbolico2 },
-    { id: 7, content: capitalSocial },
-    { id: 8, content: capitalSocial2 },
-    { id: 9, content: karlMarx },
-    { id: 10, content: karlMarx2 },
-    { id: 11, content: emileDurkhein },
-    { id: 12, content: emileDurkhein2 },
-    { id: 13, content: maxWeber },
-    { id: 14, content: maxWeber2 },
-    { id: 15, content: estado },
-    { id: 16, content: estado2 },
-  ]);
-
+        { id: 1, content: capitalFinanceiro, pairId: 'pair1', matched: false },
+        { id: 2, content: capitalFinanceiro2,  pairId: 'pair1', matched: false },
+        { id: 3, content: capitalCultural,  pairId: 'pair2', matched: false },
+        { id: 4, content: capitalCultural2,  pairId: 'pair2', matched: false },
+        { id: 5, content: capitalSimbolico,  pairId: 'pair3', matched: false },
+        { id: 6, content: capitalSimbolico2,  pairId: 'pair3', matched: false },
+        { id: 7, content: capitalSocial,  pairId: 'pair4', matched: false },
+        { id: 8, content: capitalSocial2,  pairId: 'pair4', matched: false },
+        { id: 9, content: karlMarx,  pairId: 'pair5', matched: false },
+        { id: 10, content: karlMarx2,  pairId: 'pair5', matched: false },
+        { id: 11, content: emileDurkhein,  pairId: 'pair6', matched: false },
+        { id: 12, content: emileDurkhein2,  pairId: 'pair6', matched: false },
+        { id: 13, content: maxWeber,  pairId: 'pair7', matched: false },
+        { id: 14, content: maxWeber2,  pairId: 'pair7', matched: false },
+        { id: 15, content: estado,  pairId: 'pair8', matched: false },
+        { id: 16, content: estado2,  pairId: 'pair8', matched: false },
+        ]);
+  
+            
+  const [flippedCards, setFlippedCards] = useState([]);
+  const [matchedCards, setMatchedCards] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const navigate = useNavigate();
 
-  const shuffleCards = () => {
-    const shuffled = [...cards];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1)); 
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; 
+  // Embaralhar os cards
+  useEffect(() => {
+        shuffleCards();
+      }, []);
+    
+      const shuffleCards = () => {
+        const shuffled = [...cards].sort(() => Math.random() - 0.5);
+        setCards(shuffled);
+        setFlippedCards([]);
+        setMatchedCards([]);
+        setShowPopup(false);
+      };
+
+      const handleCardClick = (id) => {
+        if (flippedCards.length === 2) return;
+
+        const clickedCard = cards.find((card) => card.id === id);
+    setFlippedCards((prev) => [...prev, clickedCard]);
+
+    if (flippedCards.length === 1) {
+      const firstCard = flippedCards[0];
+      if (firstCard.pairId === clickedCard.pairId) {
+        setMatchedCards((prev) => [...prev, firstCard.id, clickedCard.id]);
+        setFlippedCards([]);
+      } else {
+        setTimeout(() => setFlippedCards([]), 1000);
+      }
     }
-    setCards(shuffled);
   };
+
+  // Verificar vitória
+  useEffect(() => {
+        if (matchedCards.length === cards.length) {
+          setShowPopup(true);
+        }
+      }, [matchedCards, cards]);
+
+      //Codigo da sophi
 
   const handleExitClick = () => {
     setShowNotification(true);
@@ -75,7 +109,12 @@ const Sociology = () => {
 
       <div className="grid grid-cols-4 gap-4 p-4">
         {cards.map((card) => (
-          <Card key={card.id} content={card.content} />
+          <Card
+            key={card.id}
+            content={card.content}
+            isFlipped={flippedCards.includes(card) || matchedCards.includes(card.id)}
+            onClick={() => handleCardClick(card.id)}
+          />
         ))}
       </div>
 
@@ -91,7 +130,17 @@ const Sociology = () => {
             Sair do jogo!
           </button>
         </div>
+
+        {showPopup && (
+                <div className="popup">
+                <h2>Parabéns! Você ganhou!</h2>
+                <button onClick={shuffleCards}>Jogar novamente</button>
+                <button onClick={() => navigate("/")}>Sair</button>
+                </div>
+        )}
+
       </div>
+
 
       {showNotification && (
         <div
