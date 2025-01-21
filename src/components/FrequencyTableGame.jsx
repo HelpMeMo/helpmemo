@@ -213,13 +213,12 @@ const TabelaFrequencia = () => {
         </tbody>
       </table>
 
-      <br />
+      
       <button className="btn verify-btn" onClick={verificarRespostas}>
         Enviar respostas
       </button>
       {resultado && <div className="resultado">{resultado}</div>}
-      <br />
-      <br />
+
 
       <button className="btn restart-btn" onClick={reiniciarFase}>
         Reiniciar
