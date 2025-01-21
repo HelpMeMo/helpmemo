@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Hst.css";
 
 import Card from "../components/Card";
@@ -20,30 +21,64 @@ import vacaLeite from "../assets/vacaLeite.png";
 
 const Hst = () => {
   const [cards, setCards] = useState([
-    { id: 1, content: nr5 },
-    { id: 2, content: nr5s2 },
-    { id: 3, content: nr6 },
-    { id: 4, content: nr6s2 },
-    { id: 5, content: nr7 },
-    { id: 6, content: nr7s2 },
-    { id: 7, content: nr16 },
-    { id: 8, content: nr16s2 },
-    { id: 9, content: nr17 },
-    { id: 10, content: nr17s2 },
-    { id: 11, content: nr23 },
-    { id: 12, content: nr23s2 },
+    { id: 1, content: nr5, pairId: 'pair1', matched: false },
+    { id: 2, content: nr5s2,  pairId: 'pair1', matched: false },
+    { id: 3, content: nr6,  pairId: 'pair2', matched: false },
+    { id: 4, content: nr6s2,  pairId: 'pair2', matched: false },
+    { id: 5, content: nr7,  pairId: 'pair3', matched: false },
+    { id: 6, content: nr7s2,  pairId: 'pair3', matched: false },
+    { id: 7, content: nr16,  pairId: 'pair4', matched: false },
+    { id: 8, content: nr16s2,  pairId: 'pair4', matched: false },
+    { id: 9, content: nr17, pairId: 'pair5', matched: false },
+    { id: 10, content: nr17s2, pairId: 'pair5', matched: false },
+    { id: 11, content: nr23, pairId: 'pair6', matched: false },
+    { id: 12, content: nr23s2, pairId: 'pair6', matched: false },
   ]);
 
+  const [flippedCards, setFlippedCards] = useState([]);
+  const [matchedCards, setMatchedCards] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const navigate = useNavigate();
 
-  const shuffleCards = () => {
-    const shuffled = [...cards];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  // Embaralhar os cards
+  useEffect(() => {
+        shuffleCards();
+      }, []);
+    
+      const shuffleCards = () => {
+        const shuffled = [...cards].sort(() => Math.random() - 0.5);
+        setCards(shuffled);
+        setFlippedCards([]);
+        setMatchedCards([]);
+        setShowPopup(false);
+      };
+
+      const handleCardClick = (id) => {
+        if (flippedCards.length === 2) return;
+
+        const clickedCard = cards.find((card) => card.id === id);
+    setFlippedCards((prev) => [...prev, clickedCard]);
+
+    if (flippedCards.length === 1) {
+      const firstCard = flippedCards[0];
+      if (firstCard.pairId === clickedCard.pairId) {
+        setMatchedCards((prev) => [...prev, firstCard.id, clickedCard.id]);
+        setFlippedCards([]);
+      } else {
+        setTimeout(() => setFlippedCards([]), 1000);
+      }
     }
-    setCards(shuffled);
   };
+
+  // Verificar vitória
+  useEffect(() => {
+        if (matchedCards.length === cards.length) {
+          setShowPopup(true);
+        }
+      }, [matchedCards, cards]);
+
+      //Codigo da sophi
 
   const handleExitClick = () => {
     setShowNotification(true);
@@ -53,15 +88,24 @@ const Hst = () => {
     setShowNotification(false);
   };
 
+  const handleConfirmExit = () => {
+    navigate("/"); // Redireciona para a tela inicial
+  };
+
   return (
     <div className="hst-container">
       <h1 className="hst-firstTitle">JOGO DA MEMÓRIA</h1>
 
-      <header className="hst-header">Higiene e Segurança do Trabalho (HST)</header>
+      <header className="hst-header">Higiene e Segurança do Trabalho</header>
 
       <div className="grid grid-cols-4 gap-4 p-4">
         {cards.map((card) => (
-          <Card key={card.id} content={card.content} />
+          <Card
+            key={card.id}
+            content={card.content}
+            isFlipped={flippedCards.includes(card) || matchedCards.includes(card.id)}
+            onClick={() => handleCardClick(card.id)}
+          />
         ))}
       </div>
 
@@ -75,10 +119,19 @@ const Hst = () => {
         <div className="hst-buttonClose">
           <button id="exit-button" onClick={handleExitClick}>
             Sair do jogo!
-          </button> 
+          </button>
         </div>
 
-   </div>
+        {showPopup && (
+                <div className="popup">
+                <h2>Parabéns! Você ganhou!</h2>
+                <button onClick={shuffleCards}>Jogar novamente</button>
+                <button onClick={() => navigate("/")}>Sair</button>
+                </div>
+        )}
+
+      </div>
+
 
       {showNotification && (
         <div
@@ -117,6 +170,7 @@ const Hst = () => {
               Não
             </button>
             <button
+              onClick={handleConfirmExit}
               style={{
                 backgroundColor: "#4caf50",
                 color: "white",
@@ -130,7 +184,6 @@ const Hst = () => {
             </button>
           </div>
         </div>
-      
       )}
 
       <div>
