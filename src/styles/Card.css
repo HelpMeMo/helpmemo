@@ -1,7 +1,8 @@
 .Card {
     padding: 12px;
     border-width: 2px;
-    border-color: #D6B081;
+    /*border-color: #D6B081;*/
+    border-color:#289d0e ;
     border-radius: 8px;    
 }
 
