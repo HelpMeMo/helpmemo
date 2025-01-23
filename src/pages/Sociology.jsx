@@ -24,6 +24,8 @@ import estado2 from "../assets/sociology/estado2.png";
 import vaca from '../assets/vaca.png';
 import vacaLeite from '../assets/vacaLeite.png';
 import vacaFeliz from '../assets/vacaFeliz.png';
+import qmark from "../assets/sociology/qmark.png"
+
 
 const Sociology = () => {
   const [cards, setCards] = useState([
@@ -110,6 +112,9 @@ const Sociology = () => {
             content={card.content}
             isFlipped={flippedCards.includes(card) || matchedCards.includes(card.id)}
             onClick={() => handleCardClick(card.id)}
+            borderColor="#A68760"
+            defaultAsset={qmark}
+
           />
         ))}
       </div>
@@ -131,95 +136,95 @@ const Sociology = () => {
           <>
             <div className="overlay"></div>
             <div className="popup">
-              
-              <h2 style={{ fontSize: "2rem", color: "#4caf50", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)"  }}>
-               Parabéns! Você ganhou!
+
+              <h2 style={{ fontSize: "2rem", color: "#4caf50", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)" }}>
+                Parabéns! Você ganhou!
               </h2>
-              
-              <img src={vacaFeliz} alt="imagem de aviso" 
-              style={{ width: "150px",marginBottom: "20px",display: "block",margin: "0 auto"}}
-          />
+
+              <img src={vacaFeliz} alt="imagem de aviso"
+                style={{ width: "150px", marginBottom: "20px", display: "block", margin: "0 auto" }}
+              />
 
 
-              <button className="jogarNovamente" 
-              
-              onClick={() => {
-                 shuffleCards(); // Embaralha os cards para um novo jogo
-                 // setShowPopup(false); // Fecha o popup
-                 }}             
-                 > Jogar novamente
-                 
+              <button className="jogarNovamente"
+
+                onClick={() => {
+                  shuffleCards(); // Embaralha os cards para um novo jogo
+                  // setShowPopup(false); // Fecha o popup
+                }}
+              > Jogar novamente
+
               </button>
-         
-         
+
+
               <button className="Sair" onClick={() => navigate("/")}
-                >
-                  Sair
+              >
+                Sair
               </button>
-        
-        </div>
+
+            </div>
 
           </>
         )}
 
 
-{showNotification && (
-  <>
-    {/* Overlay para congelar a tela */}
-    <div className="telCongelada"></div>
+        {showNotification && (
+          <>
+            {/* Overlay para congelar a tela */}
+            <div className="telCongelada"></div>
 
-    {/* Notificação */}
-    <div className="notificacao">
-      
-      <h2 className="vaiDesistir" >
-        Vai desistir?
-      </h2>
+            {/* Notificação */}
+            <div className="notificacao">
 
-      <img
-        src={vaca}
-        alt="imagem de aviso"
-        style={{
-          width: "150px",
-          marginBottom: "20px",
-          display: "block",
-          margin: "0 auto",
-        }}
-      />
-      <div>
+              <h2 className="vaiDesistir" >
+                Vai desistir?
+              </h2>
 
-        <button 
-          onClick={handleCloseNotification}
-          style={{
-            backgroundColor: "#f44336",
-            color: "white",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: "5px",
-            cursor: "pointer",
-            marginRight: "10px",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
-          }}
-        >
-          Não
-        </button>
-        <button
-          onClick={handleConfirmExit}
-          style={{
-            backgroundColor: "#4caf50",
-            color: "white",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: "5px",
-            cursor: "pointer",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
-          }}
-        >
-          Sim
-        </button>
-      </div>
-    </div>
-  </>
-)}
+              <img
+                src={vaca}
+                alt="imagem de aviso"
+                style={{
+                  width: "150px",
+                  marginBottom: "20px",
+                  display: "block",
+                  margin: "0 auto",
+                }}
+              />
+              <div>
+
+                <button
+                  onClick={handleCloseNotification}
+                  style={{
+                    backgroundColor: "#f44336",
+                    color: "white",
+                    border: "none",
+                    padding: "10px 20px",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                    marginRight: "10px",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
+                  }}
+                >
+                  Não
+                </button>
+                <button
+                  onClick={handleConfirmExit}
+                  style={{
+                    backgroundColor: "#4caf50",
+                    color: "white",
+                    border: "none",
+                    padding: "10px 20px",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
+                  }}
+                >
+                  Sim
+                </button>
+              </div>
+            </div>
+          </>
+        )}
 
       </div>
 

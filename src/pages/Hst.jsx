@@ -18,17 +18,19 @@ import nr23s2 from "../assets/hst/nr23s2.png";
 
 import vaca from "../assets/vaca.png";
 import vacaLeite from "../assets/vacaLeite.png";
+import qmark from "../assets/hst/qmark.png"
+
 
 const Hst = () => {
   const [cards, setCards] = useState([
     { id: 1, content: nr5, pairId: 'pair1', matched: false },
-    { id: 2, content: nr5s2,  pairId: 'pair1', matched: false },
-    { id: 3, content: nr6,  pairId: 'pair2', matched: false },
-    { id: 4, content: nr6s2,  pairId: 'pair2', matched: false },
-    { id: 5, content: nr7,  pairId: 'pair3', matched: false },
-    { id: 6, content: nr7s2,  pairId: 'pair3', matched: false },
-    { id: 7, content: nr16,  pairId: 'pair4', matched: false },
-    { id: 8, content: nr16s2,  pairId: 'pair4', matched: false },
+    { id: 2, content: nr5s2, pairId: 'pair1', matched: false },
+    { id: 3, content: nr6, pairId: 'pair2', matched: false },
+    { id: 4, content: nr6s2, pairId: 'pair2', matched: false },
+    { id: 5, content: nr7, pairId: 'pair3', matched: false },
+    { id: 6, content: nr7s2, pairId: 'pair3', matched: false },
+    { id: 7, content: nr16, pairId: 'pair4', matched: false },
+    { id: 8, content: nr16s2, pairId: 'pair4', matched: false },
     { id: 9, content: nr17, pairId: 'pair5', matched: false },
     { id: 10, content: nr17s2, pairId: 'pair5', matched: false },
     { id: 11, content: nr23, pairId: 'pair6', matched: false },
@@ -43,21 +45,21 @@ const Hst = () => {
 
   // Embaralhar os cards
   useEffect(() => {
-        shuffleCards();
-      }, []);
-    
-      const shuffleCards = () => {
-        const shuffled = [...cards].sort(() => Math.random() - 0.5);
-        setCards(shuffled);
-        setFlippedCards([]);
-        setMatchedCards([]);
-        setShowPopup(false);
-      };
+    shuffleCards();
+  }, []);
 
-      const handleCardClick = (id) => {
-        if (flippedCards.length === 2) return;
+  const shuffleCards = () => {
+    const shuffled = [...cards].sort(() => Math.random() - 0.5);
+    setCards(shuffled);
+    setFlippedCards([]);
+    setMatchedCards([]);
+    setShowPopup(false);
+  };
 
-        const clickedCard = cards.find((card) => card.id === id);
+  const handleCardClick = (id) => {
+    if (flippedCards.length === 2) return;
+
+    const clickedCard = cards.find((card) => card.id === id);
     setFlippedCards((prev) => [...prev, clickedCard]);
 
     if (flippedCards.length === 1) {
@@ -73,12 +75,12 @@ const Hst = () => {
 
   // Verificar vitória
   useEffect(() => {
-        if (matchedCards.length === cards.length) {
-          setShowPopup(true);
-        }
-      }, [matchedCards, cards]);
+    if (matchedCards.length === cards.length) {
+      setShowPopup(true);
+    }
+  }, [matchedCards, cards]);
 
-      //Codigo da sophi
+  //Codigo da sophi
 
   const handleExitClick = () => {
     setShowNotification(true);
@@ -105,6 +107,7 @@ const Hst = () => {
             content={card.content}
             isFlipped={flippedCards.includes(card) || matchedCards.includes(card.id)}
             onClick={() => handleCardClick(card.id)}
+            defaultAsset={qmark}
           />
         ))}
       </div>
@@ -123,11 +126,11 @@ const Hst = () => {
         </div>
 
         {showPopup && (
-                <div className="popup">
-                <h2>Parabéns! Você ganhou!</h2>
-                <button onClick={shuffleCards}>Jogar novamente</button>
-                <button onClick={() => navigate("/")}>Sair</button>
-                </div>
+          <div className="popup">
+            <h2>Parabéns! Você ganhou!</h2>
+            <button onClick={shuffleCards}>Jogar novamente</button>
+            <button onClick={() => navigate("/")}>Sair</button>
+          </div>
         )}
 
       </div>
