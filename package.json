@@ -1,6 +1,7 @@
 {
   "name": "my-little-app",
   "version": "0.1.0",
+  "homepage": "https://nicolasnk11.github.io/helpmemo",
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",
@@ -12,6 +13,8 @@
     "web-vitals": "^4.2.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
