@@ -1,0 +1,154 @@
+.splash-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #d9e6f9;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+}
+
+.splash-logo img {
+        width: 150px;
+        height: auto;
+        z-index: 10;
+}
+
+.manchas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+}
+
+.mancha {
+        position: absolute;
+        animation: float 6s ease-in-out infinite;
+        /* Movimento suave */
+        width: 120px;
+        /* Ajuste conforme o tamanho das suas imagens */
+        height: auto;
+        z-index: 1;
+        opacity: 0.9;
+}
+
+/* Posicionamento e delays únicos */
+.mancha-1 {
+        top: 10%;
+        left: 15%;
+        animation-delay: 0s;
+}
+
+.mancha-2 {
+        top: 25%;
+        right: 10%;
+        animation-delay: 0.5s;
+}
+
+.mancha-3 {
+        bottom: 20%;
+        left: 10%;
+        animation-delay: 1s;
+}
+
+.mancha-4 {
+        bottom: 15%;
+        right: 20%;
+        animation-delay: 1.5s;
+}
+
+.mancha-5 {
+        top: 50%;
+        left: 30%;
+        animation-delay: 2s;
+}
+
+.mancha-6 {
+        bottom: 30%;
+        right: 35%;
+        animation-delay: 2.5s;
+}
+
+.manchas .mancha-11 {
+        top: 10%;
+        left: 50%;
+        animation-delay: 2.5s;
+}
+
+
+/* Animação de movimento suave */
+@keyframes float {
+        0% {
+                transform: translate(0, 0);
+        }
+
+        50% {
+                transform: translate(10px, -10px);
+        }
+
+        100% {
+                transform: translate(0, 0);
+        }
+}
+
+.loading-bar {
+        position: absolute;
+        bottom: 10%;
+        width: 70%;
+        height: 10px;
+        background: #c4d7e7;
+        border-radius: 5px;
+        overflow: hidden;
+}
+
+.progress {
+        height: 100%;
+        background: #264e70;
+        transition: width 0.1s ease;
+}
+
+.manchas .mancha-7 {
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        animation: float 5s ease-in-out infinite;
+}
+
+.manchas .mancha-8 {
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+        animation: float 6s ease-in-out infinite;
+}
+
+.manchas .mancha-9 {
+        bottom: 0;
+        left: 0;
+        transform: translate(-50%, 50%);
+        animation: float 7s ease-in-out infinite;
+}
+
+.manchas .mancha-10 {
+        bottom: 0;
+        right: 0;
+        transform: translate(50%, 50%);
+        animation: float 8s ease-in-out infinite;
+}
+
+/* Animação flutuante */
+@keyframes float {
+
+        0%,
+        100% {
+                transform: translate(0, 0) scale(1);
+        }
+
+        50% {
+                transform: translate(10px, -10px) scale(1.05);
+        }
+}
