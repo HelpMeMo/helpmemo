@@ -5,15 +5,15 @@ import vaca from '../assets/vaca.png';
 import vacaLeite from '../assets/vacaLeite.png';
 import integrante1 from '../assets/about/integrante1.jpeg';
 import integrante2 from '../assets/about/integrante2.jpeg';
-import integrante3 from '../assets/about/integrante1.jpeg';
-import integrante4 from '../assets/about/integrante1.jpeg';
+import integrante3 from '../assets/about/integrante3.jpeg';
+import integrante4 from '../assets/about/integrante4.jpg';
 import integrante5 from '../assets/about/integrante5.jpeg';
 
 const teamMembers = [
         { name: "Isabelly B.", role: "Desenvolvedora FullStack", image: integrante1 },
         { name: "Sophia M.", role: "Desenvolvedora FullStack", image: integrante2 },
-        { name: "Sure R.", role: "Desenvolvedora FullStack", image: integrante1 },
-        { name: "Thalita S.", role: "Desenvolvedora FullStack", image: integrante1 },
+        { name: "Sure R.", role: "Desenvolvedora FullStack", image: integrante3 },
+        { name: "Thalita S.", role: "Desenvolvedora FullStack", image: integrante4 },
         { name: "Thayná N.", role: "Desenvolvedora FullStack", image: integrante5 },
 ];
 

@@ -60,9 +60,10 @@
 
 .text {
         font-size: 18px;
-        text-align: justify;
+        text-align: center;
         font-family: 'Roboto', sans-serif;
         color: #283849
+        
 }
 
 .aboutpage {
