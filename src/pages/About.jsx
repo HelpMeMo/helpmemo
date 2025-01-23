@@ -8,6 +8,7 @@ import integrante2 from '../assets/about/integrante2.jpeg';
 import integrante3 from '../assets/about/integrante3.jpeg';
 import integrante4 from '../assets/about/integrante4.jpg';
 import integrante5 from '../assets/about/integrante5.jpeg';
+import integrante6 from '../assets/about/integrante6.jpg';
 
 const teamMembers = [
         { name: "Isabelly B.", role: "Desenvolvedora FullStack", image: integrante1 },
@@ -15,6 +16,7 @@ const teamMembers = [
         { name: "Sure R.", role: "Desenvolvedora FullStack", image: integrante3 },
         { name: "Thalita S.", role: "Desenvolvedora FullStack", image: integrante4 },
         { name: "Thayná N.", role: "Desenvolvedora FullStack", image: integrante5 },
+        { name: "Jaime N.", role: "Desenvolvedor FullStack", image: integrante6 },
 ];
 
 const About = () => {
@@ -26,7 +28,7 @@ const About = () => {
                                 <h1 className="titulo">Projeto: O que é e qual o objetivo? </h1>
                                 <p className="text"> É uma plataforma educacional temática que une criatividade e o universo das vaquinhas inteligentes para transformar o aprendizado em uma experiência leve, divertida e marcante. Focado em disciplinas como Sociologia, Matemática e HST (Higiene e Segurança do Trabalho), o projeto foi criado para ajudar estudantes a superar desafios acadêmicos e fixar conteúdos com facilidade. Seja para lembrar uma fórmula, um conceito sociológico ou uma norma importante, o HelpMeMo é a ferramenta ideal para estimular a memória de forma lúdica e prazerosa – tudo isso com um toque especial de fofura! </p>
                                 <h1 className="titulo">Equipe: Quem desenvolveu a ideia?</h1>
-                                <p className="text">A equipe responsável pelo desenvolvimento do site é composta por cinco alunas do IFCE, programadoras e comprometidas em criar uma plataforma de aprendizado eficaz e envolvente. Temos uma paixão profunda pela educação e acreditamos que todos têm o potencial de alcançar seus objetivos acadêmicos.</p>
+                                <p className="text">A equipe responsável pelo desenvolvimento do site é composta por cinco estudantes do IFCE, programadores e comprometidos em criar uma plataforma de aprendizado eficaz e envolvente. Temos uma paixão profunda pela educação e acreditamos que todos têm o potencial de alcançar seus objetivos acadêmicos.</p>
                                 <div className="team-container">
                                         {teamMembers.map((member, index) => (
                                                 <div key={index} className="team-card">

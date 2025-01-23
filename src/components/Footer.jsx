@@ -11,13 +11,13 @@ const Footer = () => {
                         <p className="footer-text">Copyright © 2024/HelpMeMo</p>
                         <div className="footer-icons">
                                 <Link to="https://www.instagram.com/isabelly.bc/" className="footer-icon" title="Facebook">
-                                        <img src={linkedinIcon} alt="Facebook" />
+                                        <img src={linkedinIcon} alt="linkedIn" />
                                 </Link>
-                                <Link to="https://www.instagram.com/isabelly.bc/" className="footer-icon" title="Instagram">
-                                        <img src={githubIcon} alt="Instagram" />
+                                <Link to="https://github.com/HelpMeMo/helpmemo" className="footer-icon" title="Instagram">
+                                        <img src={githubIcon} alt="Github" />
                                 </Link>
                                 <Link to="https://www.instagram.com/isabelly.bc/" className="footer-icon" title="Twitter">
-                                        <img src={instaIcon} alt="Twitter" />
+                                        <img src={instaIcon} alt="instagram" />
                                 </Link>
                         </div>
                 </footer>
