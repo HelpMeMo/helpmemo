@@ -101,16 +101,16 @@
     right: 0;
 }
 
-.Card {
-    padding: 12px;
-    border-width: 2px;
-    border-color: #364732;
-    border-radius: 8px;    
-}
+    .Card {
+        padding: 12px;
+        border-width: 2px;
+        border-color: #364732;
+        border-radius: 8px;    
+    }
 
-.asset {
-    pointer-events: none;
-    width: auto;
-    height: 220px;
-  }
+    .asset {
+        pointer-events: none;
+        width: auto;
+        height: 220px;
+    }
   
