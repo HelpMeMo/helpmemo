@@ -150,7 +150,7 @@ const Sociology = () => {
 
                 onClick={() => {
                   shuffleCards(); // Embaralha os cards para um novo jogo
-                  // setShowPopup(false); // Fecha o popup
+                  setShowPopup(false); // Fecha o popup
                 }}
               > Jogar novamente
 
@@ -184,8 +184,8 @@ const Sociology = () => {
                 src={vaca}
                 alt="imagem de aviso"
                 style={{
-                  width: "150px",
-                  marginBottom: "20px",
+                  width: "50px",
+                  marginBottom: "10px",
                   display: "block",
                   margin: "0 auto",
                 }}

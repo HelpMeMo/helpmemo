@@ -100,3 +100,98 @@
     color: "#333";
     text-shadow: "1px 1px 4px rgba(0, 0, 0, 0.2)";
   }
+
+  /* MultipleFiles/components/Popup.css */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.confirm-button, .cancel-button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirm-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Overlay escurecido */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Contêiner do pop-up */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 1000;
+}
+
+/* Botões gerais */
+.popup button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup button.confirm-button {
+  background-color: #4caf50;
+}
+
+.popup button.confirm-button:hover {
+  background-color: #388e3c;
+}
+
+.popup button.cancel-button {
+  background-color: #f44336;
+}
+
+.popup button.cancel-button:hover {
+  background-color: #d32f2f;
+}
