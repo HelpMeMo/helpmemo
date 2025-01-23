@@ -1,122 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  line-height: 1.6;
+}
+
 .game-container {
   max-width: 900px;
-  margin: 30px auto;
-  padding: 30px;
+  margin: 50px auto;
+  padding: 40px;
   background-color: #ffffff;
-  border-radius: 10px;
-  border: 2px solid #FF4545;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-/* .sequencia {
-  background-color: #faeae7;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  text-align: center;
-} */
-
+.sequencia {
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  box-shadow: 4px 4px 10px rgba(0.3, 0.3, 0.3, 0.3);
+}
 
 .tabela-frequencia {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 12px;
 }
 
-.tabela-frequencia th, .tabela-frequencia td {
+.tabela-frequencia th,
+.tabela-frequencia td {
   padding: 16px;
-  border: 1px solid #FF4545;
+  border: 1px solid #ddd;
   text-align: center;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
 }
 
 .tabela-frequencia th {
-  background-color: #FF4545;
-  color: #ffffff;
+  background-color: #ff6b6b;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 12px 12px 0 0;
+}
+
+.tabela-frequencia td {
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 0 0 12px 12px;
+}
+
+.tabela-frequencia td:hover {
+  background-color: #ff6b6b19;
+  color: #333;
 }
 
 input[type="number"] {
-  width: 80px;
-  padding: 8px;
+  width: 100px;
+  padding: 12px;
   font-size: 1rem;
-  border: 1px solid #FF4545;
-  border-radius: 5px;
+  border: 2px solid #ff6b6b;
+  border-radius: 8px;
   text-align: center;
-  margin: 5px 0;
+  background-color: #fff;
+  color: #333;
+  margin: 8px 0;
+  transition: all 0.3s ease;
 }
 
-/* .input-container {
-  margin-top: 100px;
-} */
-
-/* .buttons-container {
-  margin-top: 50px;
-} */
+input[type="number"]:focus {
+  border-color: #ff6b6b3b;
+  background-color: #ffffff;
+}
 
 .btn {
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 12px 30px;
+  font-size: 1.1rem;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
-  margin: 0 10px;
+  border-radius: 10px;
+  margin: 10px 15px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .verify-btn {
-  background-color: #FF4545;
+  background-color: #ff6b6b;
   color: white;
 }
 
 .verify-btn:hover {
-  background-color: #ffffff;
-  color: #FF4545;
-  border: 1px solid #FF4545;
-  border-radius: 5px;
+  background-color: #ffadad;
+  transform: scale(1.05);
 }
 
 .next-phase-btn {
-  background-color: #FF7B69;
-  color: #ffffff;
+  background-color: #ff6b6b;
+  color: white;
 }
 
 .next-phase-btn:hover {
-  background-color: #ffffff;
-  color: #FF7B69;
-  border: 1px solid #FF4545;
-  border-radius: 5px;
+  background-color: #ff6b6b;
+  transform: scale(1.05);
 }
 
 .restart-btn {
-  background-color: #FF7B69;
-  color: #ffffff;
+  background-color: #f0f0f0;
+  color: #ff6b6b;
+  border: 2px solid #ff6b6b;
 }
 
 .restart-btn:hover {
-  background-color: #ffffff;
-  color: #FF7B69;
-  border: 1px solid #FF7B69;
-  border-radius: 5px;
+  background-color: #ff6b6b;
+  color: white;
+  border-color: #ff6b6b;
+  transform: scale(1.05);
 }
 
 .resolucao {
-  margin-top: 20px;
-  background-color: #FF7B69;
+  margin-top: 30px;
+  background-color: #f9f9f9;
   padding: 20px;
   border-radius: 10px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: left;
-  color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .resultado {
   margin-top: 10px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  color: #fa8282;
+  color: #ff6b6b;
 }
 
-/* Estilos para notificações */
 .notification {
   position: fixed;
   top: 20px;
@@ -124,29 +155,46 @@ input[type="number"] {
   transform: translateX(-50%);
   background-color: #ffffff;
   padding: 20px;
-  border: 2px solid #FF4545;
+  border: 1px solid #ff6b6b;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 80%;
   z-index: 999;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .notification p {
   margin: 10px 0;
-  color: #FF4545;
+  color: #ff6b6b;
 }
 
-/* Botão para fechar notificações */
 .close-notification-btn {
-  background-color: #FF4545;
+  background-color: #ff6b6b;
   color: white;
-  margin-top: 10px;
-  padding: 5px 10px;
+  margin-top: 15px;
+  padding: 8px 15px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .close-notification-btn:hover {
-  background-color: #ffffff;
-  color: #FF4545;
+  background-color: #ff6b6b;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    padding: 20px;
+  }
+
+  .tabela-frequencia th,
+  .tabela-frequencia td {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
 }
